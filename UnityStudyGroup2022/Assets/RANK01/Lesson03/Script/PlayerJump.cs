@@ -215,12 +215,3 @@ public class PlayerJump : MonoBehaviour
 
 
 }
-
-
-
-
-
-public class ScriptHitTester : MonoBehaviour
-{
-
-}
