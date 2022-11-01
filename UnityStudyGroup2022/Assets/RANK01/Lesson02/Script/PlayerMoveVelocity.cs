@@ -19,10 +19,11 @@ public class PlayerMoveVelocity : MonoBehaviour
         //物理を取り込む
         m_Rigidbody = GetComponent<Rigidbody>();
     }
-
     void Update()
     {
-        this.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0));
+        //マウスによる回転で、キャラクターの向きを変える
+        this.transform.Rotate(
+            new Vector3(0, Input.GetAxis("Mouse X"), 0));
 
         //キーボードによる移動入力
         Vector3 InputPoint = new Vector3(
