@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace StateMachineAI
 {
-    public class S_TypeB : State<AITester>
+    public class S_TypeC : State<AITester>
     {
         /// <summary>
         /// 切り替え時間
@@ -17,7 +17,7 @@ namespace StateMachineAI
         /// コンストラクタ
         /// </summary>
         /// <param name="owner">オーナー</param>
-        public S_TypeB(AITester owner) : base(owner) { }
+        public S_TypeC(AITester owner) : base(owner) { }
 
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace StateMachineAI
         {
             ///切り替え時間を初期化
             m_Times = 0.0f;
-            Debug.Log("▼S_TypeBを起動しました!!");
+            Debug.Log("▼S_TypeCを起動しました!!");
         }
 
 
@@ -46,7 +46,8 @@ namespace StateMachineAI
         /// </summary>
         public override void Exit()
         {
-            Debug.Log("▼S_TypeBが終了しました!!");
+            Debug.Log("▼S_TypeCが終了しました!!");
+            owner.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
 
 
@@ -57,12 +58,12 @@ namespace StateMachineAI
         public void BrainCheck()
         {
             ///キューブをZ軸移動
-            owner.transform.Translate(new Vector3(0, 0, 0.1f));
+            owner.transform.localScale= new Vector3(m_Times, m_Times, m_Times);
             ///1秒経ったら...
-            if (m_Times > 1.0f)
+            if (m_Times > 2.0f)
             {
                 ///S_TypeA(A_Mode)へステート移動
-                owner.ChangeState(AIState_ABType.C_Mode);
+                owner.ChangeState(AIState_ABType.A_Mode);
             }
             else
             {

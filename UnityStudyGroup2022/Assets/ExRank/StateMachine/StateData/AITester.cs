@@ -21,6 +21,8 @@ namespace StateMachineAI
         A_Mode,
         //前進ステート
         B_Mode,
+        //拡大ステート
+        C_Mode,
     }
 
     /// <summary>
@@ -37,6 +39,8 @@ namespace StateMachineAI
             stateList.Add(new S_TypeA(this));
             ///S_TypeB ステートを登録する(ステートリスト1番目)
             stateList.Add(new S_TypeB(this));
+            ///S_TypeC ステートを登録する(ステートリスト2番目)
+            stateList.Add(new S_TypeC(this));
 
             ///ステートマシーンを自身として設定
             stateMachine = new StateMachine<AITester>();
