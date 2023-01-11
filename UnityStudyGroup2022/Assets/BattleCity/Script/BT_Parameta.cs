@@ -17,8 +17,12 @@ public class BT_Parameta : MonoBehaviour
     public string m_UDKeyName;
     [Header("発砲キー名")]
     public string m_FireKeyName;
+    [Header("砲塔キー名")]
+    public string m_TurretKeyName;
     [Header("Messageテキスト")]
     public Text m_Mes;
+
+    public GameObject m_DestroyObject;
     void Start()
     {
         //messageテキストとリンクが形成できていない
@@ -45,10 +49,12 @@ public class BT_Parameta : MonoBehaviour
     /// </summary>
     public void RePop()
     {
+        Instantiate(m_DestroyObject, this.transform.position, this.transform.rotation);
         //耐久力を回復させる
         m_HP = m_MaxHP;
+        Destroy(this.gameObject);
         //出現位置をランダムで決める
-        this.transform.position = new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f));
+        //this.transform.position = new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f));
     }
     /// <summary>
     /// 死亡チェック
